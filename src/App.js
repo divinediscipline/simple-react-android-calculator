@@ -1,50 +1,71 @@
 import React, { Component } from 'react';
+
 import './App.css';
+import Board from './Board/Board';
+import CalcScreen from './CalcScreen/CalcScreen';
 
 class App extends Component {
+
+  state = {
+    screenInputs: [
+    ],
+    resultContainer: '',
+  }
+
+  showInput = (event) => {
+    const calcOperators = ['+', '-', '/', '*'];
+    let calculatedResult;
+
+    let newScreenInputs = [...this.state.screenInputs];
+    newScreenInputs.push(event.target.innerHTML);
+
+    let stringInputs = newScreenInputs.join('')
+
+    if (stringInputs.includes('÷')) {
+      stringInputs = stringInputs.split('÷').join('/');
+    }
+    if (stringInputs.includes('×')) {
+      stringInputs = stringInputs.split('×').join('*');
+    }
+    console.log('string inputs are ' + stringInputs);
+    try {
+      for (let i = 0; i < calcOperators.length; i++) {
+        if (stringInputs.indexOf(calcOperators[i]) !== -1) {
+          calculatedResult = eval(stringInputs);
+          console.log(calculatedResult);
+        }
+
+      }
+    }
+    catch (e) {
+      // console.log('not possible');
+    }
+
+    this.setState({
+      screenInputs: newScreenInputs,
+      resultContainer: calculatedResult
+    });
+    console.log(event.target.innerHTML);
+
+  }
+
+  deleteInput = () => {
+    let newScreenInputs = [...this.state.screenInputs];
+    newScreenInputs.pop();
+    this.setState({
+      screenInputs: newScreenInputs
+    });
+  }
+
+  // calculate = () => {
+  //   let newScreenInputs = [...this.state.screenInputs];
+
+  // }
   render() {
     return (
       <div className="App">
-
-        <div>
-
-          <div className="show-case">
-            <div>placeholder </div>
-            <div> place2</div>
-          </div>
-          <div className="board">
-            <div className="board__nums">
-                <div className="board__num top-nums">7</div>
-                <div className="board__num top-nums">8</div>
-                <div className="board__num top-nums">9</div>
-                <div className="board__num">4</div>
-                <div className="board__num">5</div>
-                <div className="board__num">6</div>
-                <div className="board__num">1</div>
-                <div className="board__num">2</div>
-                <div className="board__num">3</div>
-                <div className="board__num">.</div>
-                <div className="board__num">0</div>
-                <div className="board__num equal-sign">=</div>
-            </div>
-            <div className="board__signs">
-                <div className="board__sign">DEL</div>
-                <div className="board__sign symbol">÷</div>
-                <div className="board__sign symbol">×</div>
-                <div className="board__sign symbol">-</div>
-                <div className="board__sign symbol">+</div>
-            </div>
-
-            <div className="board__emptys">
-                <div className="board__empty"> </div>
-                <div className="board__empty"> </div>
-                <div className="board__empty"> </div>
-                <div className="board__empty"> </div>
-                <div className="board__empty"> </div>
-            </div>
-          </div>
-        </div>
-
+        <CalcScreen input={this.state.screenInputs} calculatedResult={this.state.resultContainer} />
+        <Board click={this.showInput} del={this.deleteInput} />
       </div>
     );
   }

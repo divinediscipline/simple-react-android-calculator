@@ -1,0 +1,47 @@
+
+.board{
+  height: 75vh;
+  color: #fff;
+  display: flex;
+  flex-wrap: wrap;
+}
+.board__nums{
+  padding: 2.4rem;
+  width: 76vw;
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 4rem;
+  background-color: #434343;
+  align-items: baseline;
+}
+.board__num{
+  padding: 2.5rem;
+}
+.top-nums{
+  padding-top: 0;
+}
+.equal-sign{
+  padding-left: 3rem;
+}
+.board__signs{
+  width: 20vw;
+  background-color: #636363;
+  font-size: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+}
+.board__sign{
+  padding: 1.8rem;
+}
+.symbol{
+  font-size: 3.5rem;
+}
+.board__emptys{
+  display: flex;
+  flex-wrap: wrap;
+  width: 4vw;
+  background-color: #1de9b6;
+}
+.board__empty{
+  padding: .5rem;
+}

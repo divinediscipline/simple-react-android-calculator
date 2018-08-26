@@ -1,0 +1,15 @@
+.calc-screen{
+  background-color: #fefefe;
+  height: 25vh;
+  font-size: 3rem;
+  text-align: right;
+}
+.calc-screen__input{
+  margin: 4rem 1.5rem 0 0;
+  color: #434343;
+  font-size: 5rem;
+}
+.calc-screen__result{
+  margin: 2.5rem 1.5rem 0 0;
+  color: grey;
+}
