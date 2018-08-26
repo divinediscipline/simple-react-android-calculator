@@ -10,7 +10,7 @@
   width: 76vw;
   display: flex;
   flex-wrap: wrap;
-  font-size: 4rem;
+  font-size: 2.8rem;
   background-color: #434343;
   align-items: baseline;
 }
@@ -26,7 +26,7 @@
 .board__signs{
   width: 20vw;
   background-color: #636363;
-  font-size: 2rem;
+  font-size: 1.3rem;
   display: flex;
   flex-wrap: wrap;
 }
@@ -34,7 +34,7 @@
   padding: 1.8rem;
 }
 .symbol{
-  font-size: 3.5rem;
+  font-size: 2rem;
 }
 .board__emptys{
   display: flex;
